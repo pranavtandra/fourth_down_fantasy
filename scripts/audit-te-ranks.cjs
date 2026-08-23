@@ -1,0 +1,12 @@
+const fs=require("fs"),ts=require("typescript"),path=require("path"),Module=require("module");
+const file=path.join(__dirname,"..","app","DraftLab.tsx");
+const source=fs.readFileSync(file,"utf8")+"\nexport {players,adjustedRank,supplyRankImpact};";
+const js=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,jsx:ts.JsxEmit.ReactJSX,esModuleInterop:true}}).outputText;
+const loaded=new Module(file,module);loaded.filename=file;loaded.paths=module.paths;loaded._compile(js,file);
+const {players,adjustedRank,supplyRankImpact}=loaded.exports;
+const ranked=players.map(p=>({...p,price:adjustedRank(p,"ppr",false,"balanced")+supplyRankImpact(p,players,12,false)})).sort((a,b)=>a.price-b.price||b.ceiling-a.ceiling).map((p,i)=>({...p,overall:i+1}));
+const tes=ranked.filter(p=>p.pos==="TE");
+console.table(tes.map((p,i)=>({TE:i+1,player:p.name,overall:p.overall,modelPrice:p.price,ADP:p.adp})));
+const top50=ranked.filter(p=>p.overall<=50&&p.pos==="TE").length;
+if(top50>3)throw new Error(`TE regression: ${top50} tight ends remain in top 50`);
+console.log(`PASS: ${top50} TEs in top 50; TE3 is overall ${tes[2]?.overall||"n/a"}.`);

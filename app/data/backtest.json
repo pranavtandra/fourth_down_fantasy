@@ -1,0 +1,154 @@
+{
+  "connected": true,
+  "method": "Leakage-safe walk-forward ridge regression. Each season's coefficients are fit only on the earlier season transition, then frozen before predicting the next year. Inputs: PPR rate, opportunity, high-value usage and position. Minimum six games; returning players only.",
+  "target": "Actual rank is value over replacement—not raw fantasy points—using a 12-team lineup baseline.",
+  "coverage": "2023–2024",
+  "results": [
+    {
+      "season": 2023,
+      "trainingSample": 305,
+      "weights": [
+        -10.095,
+        0.2261,
+        0.2508,
+        0.6243,
+        1.7694,
+        -1.6247,
+        -0.5392,
+        0.3945
+      ],
+      "sample": 116,
+      "modelSpearman": 0.6682746504610214,
+      "baselineSpearman": 0.6710178072276567,
+      "modelMae": 32.12068965517241,
+      "baselineMae": 31.362068965517242,
+      "positions": {
+        "QB": {
+          "sample": 21,
+          "modelSpearman": 0.5200973199798143,
+          "baselineSpearman": 0.5321199927297157,
+          "modelMae": 37.095238095238095,
+          "baselineMae": 31.61904761904762
+        },
+        "RB": {
+          "sample": 26,
+          "modelSpearman": 0.630360339270455,
+          "baselineSpearman": 0.630067108691629,
+          "modelMae": 31.653846153846153,
+          "baselineMae": 32.65384615384615
+        },
+        "WR": {
+          "sample": 50,
+          "modelSpearman": 0.7242126644133677,
+          "baselineSpearman": 0.6690440075691371,
+          "modelMae": 30,
+          "baselineMae": 31.28
+        },
+        "TE": {
+          "sample": 19,
+          "modelSpearman": 0.6576688128067764,
+          "baselineSpearman": 0.6922151042981436,
+          "modelMae": 32.8421052631579,
+          "baselineMae": 29.526315789473685
+        }
+      },
+      "teCalibration": {
+        "actualTop50": 3,
+        "modelTop50": 3,
+        "baselineTop50": 1
+      }
+    },
+    {
+      "season": 2024,
+      "trainingSample": 303,
+      "weights": [
+        -11.3437,
+        0.5206,
+        0.2758,
+        0.0437,
+        -1.2935,
+        -0.1675,
+        -0.0868,
+        1.5478
+      ],
+      "sample": 130,
+      "modelSpearman": 0.5110994101118063,
+      "baselineSpearman": 0.5026311779006605,
+      "modelMae": 38.09230769230769,
+      "baselineMae": 39.05384615384615,
+      "positions": {
+        "QB": {
+          "sample": 26,
+          "modelSpearman": 0.5292154324181438,
+          "baselineSpearman": 0.5174141250109898,
+          "modelMae": 34.07692307692308,
+          "baselineMae": 31.23076923076923
+        },
+        "RB": {
+          "sample": 35,
+          "modelSpearman": 0.6705805308415606,
+          "baselineSpearman": 0.6927191441657439,
+          "modelMae": 29.085714285714285,
+          "baselineMae": 31.685714285714287
+        },
+        "WR": {
+          "sample": 45,
+          "modelSpearman": 0.20964991290699797,
+          "baselineSpearman": 0.17549945775034997,
+          "modelMae": 44.733333333333334,
+          "baselineMae": 46.53333333333333
+        },
+        "TE": {
+          "sample": 24,
+          "modelSpearman": 0.3390672018752076,
+          "baselineSpearman": 0.3252675747511001,
+          "modelMae": 43.125,
+          "baselineMae": 44.25
+        }
+      },
+      "teCalibration": {
+        "actualTop50": 3,
+        "modelTop50": 5,
+        "baselineTop50": 4
+      }
+    }
+  ],
+  "positionSummary": {
+    "QB": {
+      "sample": 47,
+      "modelSpearman": 0.5246563761989791,
+      "baselineSpearman": 0.5247670588703528,
+      "modelMae": 35.586080586080584
+    },
+    "RB": {
+      "sample": 61,
+      "modelSpearman": 0.6504704350560078,
+      "baselineSpearman": 0.6613931264286864,
+      "modelMae": 30.369780219780218
+    },
+    "WR": {
+      "sample": 95,
+      "modelSpearman": 0.46693128866018285,
+      "baselineSpearman": 0.4222717326597435,
+      "modelMae": 37.36666666666667
+    },
+    "TE": {
+      "sample": 43,
+      "modelSpearman": 0.49836800734099196,
+      "baselineSpearman": 0.5087413395246219,
+      "modelMae": 37.983552631578945
+    }
+  },
+  "summary": {
+    "seasons": 2,
+    "sample": 246,
+    "trainingSample": 608,
+    "modelSpearman": 0.5896870302864139,
+    "baselineSpearman": 0.5868244925641586,
+    "modelMae": 35.10649867374005,
+    "baselineMae": 35.207957559681695
+  },
+  "updatedAt": "2026-08-23T03:06:23.941Z",
+  "source": "nflverse weekly player statistics",
+  "generatedAt": "2026-08-23T03:06:23.945Z"
+}
